@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{amsmath}
+\begin{document}
+
+\def\trace{\operatorname{tr}}
+
+Here is a {\em Macaulay2} example.
+<<<R = ZZ[a..i];>>>
+We make a generic matrix $m$.
+<<<m = matrix{{a,b,c},{d,e,f},{g,h,i}}>>>
+The first output line, labelled with ({\tt o2 =}), displays the answer, and
+the second output line, labelled with ({\tt o2 :}), displays its {\em class},
+or type, and perhaps some auxiliary information.
+Now we make the quotient ring of $R$ modulo the $2\times 2$ minors of $m$ and
+the equation $\trace m = 1$.
+<<<S = R/(minors_2 m + ideal (trace m - 1));>>>
+We promote $m$ to $S$, thereby making our generic matrix of rank at most 1 and
+of trace 1.
+<<<m = promote(m,S)>>>
+Now we check whether $m$ is idempotent.
+<<<m^2==m>>>
+Since the matrix $m$ was generic, we have proven a little theorem, namely, that any $3
+\times 3$ matrix with entries in a commutative ring of rank at most 1 and of
+trace 1 is idempotent.
+
+\end{document}

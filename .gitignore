@@ -1,0 +1,11 @@
+*.tmp
+merge
+process
+*.aux
+*.log
+*.out
+*-m2.pdf
+*-tex.m2
+*.m2-out
+*.old
+*-m2.tex
