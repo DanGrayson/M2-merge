@@ -12,7 +12,7 @@ M2 = M2
 	   echo "--differences forcing M2 to be re-run:";	\
 	   (set -x ; diff -u $^ $^.old);			\
 	   echo "--running M2 on $^";				\
-	   (set -x; $(M2) -q --stop eg.m2 <$^ >$@.tmp &&	\
+	   (set -x; ./multiprocess $(M2) <$^ >$@.tmp &&		\
 	   mv $@.tmp $@ &&					\
 	   cp $^ $^.old ) ||					\
 	   exit 1 ;						\
