@@ -16,3 +16,4 @@ in this directory and run the following command.
 ```
     make foo-m2.pdf
 ```
+The resulting file ```foo-m2.pdf``` should be ready for viewing or printing.
