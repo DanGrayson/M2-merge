@@ -1,6 +1,6 @@
 # put your tex file "foo.tex" in this directory and run "make foo-m2.pdf"
 
-all: process merge sample-m2.pdf
+all: sample-m2.pdf
 M2 = M2
 %.pdf: %.tex
 	pdflatex -interaction=nonstopmode $*
