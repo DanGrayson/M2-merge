@@ -2,6 +2,7 @@
 
 all: merge process sample-m2.pdf
 M2 = M2
+LINEWIDTH = 77
 %.pdf: %.tex
 	pdflatex -interaction=nonstopmode $*
 	pdflatex -interaction=nonstopmode $*
@@ -11,7 +12,7 @@ M2 = M2
 	./process $< >$@.tmp
 	mv $@.tmp $@
 %-m2.tex: %.tex %.m2-out
-	./merge -w 77 $*.tex $*.m2-out >$@.tmp
+	./merge -w $(LINEWIDTH) $*.tex $*.m2-out >$@.tmp
 	mv $@.tmp $@
 %.m2-out: %-tex.m2
 	@if [ -f $@ ] && cmp -s $^ $^.old ;			\
