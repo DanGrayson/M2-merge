@@ -1,16 +1,16 @@
 # put your tex file "foo.tex" in this directory and run "make foo-m2.pdf"
 
-all: sample-m2.pdf
+all: merge process sample-m2.pdf
 M2 = M2
 %.pdf: %.tex
 	pdflatex -interaction=nonstopmode $*
 	pdflatex -interaction=nonstopmode $*
 .SUFFIXES: -m2.tex .m2-out -tex.m2
 .PRECIOUS: %-m2.tex %.out %.m2 %.dvi %.pdf %-tex.m2 %.m2-out
-%-tex.m2: %.tex process
+%-tex.m2: %.tex
 	./process $< >$@.tmp
 	mv $@.tmp $@
-%-m2.tex: %.tex %.m2-out merge
+%-m2.tex: %.tex %.m2-out
 	./merge -w 77 $*.tex $*.m2-out >$@.tmp
 	mv $@.tmp $@
 %.m2-out: %-tex.m2
